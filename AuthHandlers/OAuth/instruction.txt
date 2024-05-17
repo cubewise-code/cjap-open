@@ -1,0 +1,26 @@
+OAuth
+This project provides sample code of AuthHandler and custom CA login page to implement a basic OAuth authentication flow:
+1. Jumps to OAuth login page from CA;
+2. Redirect to CA login page with OAuth token;
+3. Provider request user with token;
+
+Notice: the custom CA login page only works for Non-IE browser and CA version >= 11.2; IE and some applications use IE to open login page like Perspective still need to authenticate with username/password in origin CA login page.
+
+How to use:
+- backup origin CA login page files in [CA install Path]\webcontent\bi\js\glass\views
+- add or replace js files in customLoginPage\views 
+- Update config.js values:
+	namespace: namespace name for OAuth Authentication
+ 	OAuthUrl: Url of login page in OAuth service
+	OAuthTokenName: token parameter name in redirect CA login page Url
+- Setup AuthHandler project with IntelliJ.
+- Update execute function in src/OpenCJAPAuth/AuthHandler and configuration in conf.properties to implement OAuth user query request. 
+- Build project artifact to generate AuthHandler.jar. 
+- Add following jar files to [CA install path]\webapps\p2pd\WEB-INF\lib:
+    OpenCJAPAuthBase.jar from OpenCJAPAuthBase/dist
+    AuthHandler.jar from output path
+    JSON4J.jar, DBOperation_1.0.jar from ./dist
+- Create namespace in CA configuration with:
+    Type = Custom Java Authentication provider
+    Java Class Name = OpenCJAPAuth.Provider
+- Test namespace and restart CA.

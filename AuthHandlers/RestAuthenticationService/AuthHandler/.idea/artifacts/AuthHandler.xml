@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="AuthHandler">
+    <output-path>$PROJECT_DIR$/out/artifacts/AuthHandler</output-path>
+    <root id="root">
+      <element id="archive" name="AuthHandler.jar">
+        <element id="module-output" name="AuthHandler" />
+      </element>
+      <element id="library" level="project" name="lib" />
+    </root>
+  </artifact>
+</component>

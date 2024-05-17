@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="OpenCJAPAuthBase">
+    <output-path>$PROJECT_DIR$/out/artifacts/OpenCJAPAuthBase</output-path>
+    <root id="root">
+      <element id="archive" name="OpenCJAPAuthBase.jar">
+        <element id="module-output" name="OpenCJAPAuthBase" />
+      </element>
+    </root>
+  </artifact>
+</component>

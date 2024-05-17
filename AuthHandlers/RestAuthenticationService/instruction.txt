@@ -1,0 +1,14 @@
+RestAuthenticationService
+This project creates AuthHandler sends http request to a authentication service to validate username and password.
+
+- Setup AuthHandler project with IntelliJ.
+- Update execute function in src/OpenCJAPAuth/AuthHandler and configuration in conf.properties to implement authentication request flow. 
+- Build project artifact to generate AuthHandler.jar. 
+- Add following jar files to [CA install path]\webapps\p2pd\WEB-INF\lib:
+    OpenCJAPAuthBase.jar from OpenCJAPAuthBase/dist
+    AuthHandler.jar from output path
+    JSON4J.jar, DBOperation_1.0.jar from ./dist
+- Create namespace in CA configuration with:
+    Type = Custom Java Authentication provider
+    Java Class Name = OpenCJAPAuth.Provider
+- Test namespace and restart CA.

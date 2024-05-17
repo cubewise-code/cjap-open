@@ -1,0 +1,11 @@
+AzureKeyVault 
+This project creates AuthHandler to login with fixed Azure username and password stored in Azure Key Vault.
+
+- Update and save conf.properties in dist/AuthHandler.jar. 
+- Add following jar files to [CA install path]\webapps\p2pd\WEB-INF\lib:
+    OpenCJAPAuthBase.jar from OpenCJAPAuthBase/dist
+    AuthHandler.jar, DBOperation_1.0.jar from ./dist  
+- Create namespace in CA configuration with:
+    Type = Custom Java Authentication provider
+    Java Class Name = OpenCJAPAuth.Provider
+- Test namespace and restart CA.

@@ -1,0 +1,14 @@
+MicrosoftCredentialManager
+This project creates AuthHandler to login with username and password stored Microsoft Credential Manager(CM).
+AuthHandler calls Python script to get user password from CM and compares with input password. If password matches, authentication with username in conf.properties.
+
+- Setup Python environment(>=3.7) and install keyring lib on the machine for Credential Manager query. 
+- Copy the script file Script/main.py to proper place. Execute "python <script path>/main.py" in command window, check if password can be printed.
+- Update and save conf.properties in dist/AuthHandler.jar. 
+- Add following jar files to [CA install path]\webapps\p2pd\WEB-INF\lib:
+    OpenCJAPAuthBase.jar from OpenCJAPAuthBase/dist
+    AuthHandler.jar, DBOperation_1.0.jar from ./dist 
+- Create namespace in CA configuration with:
+    Type = Custom Java Authentication provider
+    Java Class Name = OpenCJAPAuth.Provider
+- Test namespace and restart CA.
